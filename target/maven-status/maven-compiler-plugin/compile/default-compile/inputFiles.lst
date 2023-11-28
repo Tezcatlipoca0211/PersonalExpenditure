@@ -1,7 +1,8 @@
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Frames\LoginFrame.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\NewExpenditurePanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Dialogs\AddNewGroupTypeExp.java
 D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\util\Utilities.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Frames\MainFrame.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Dialogs\AddNewRevenuesTypeExp.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Panels\ListExpenditurePanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Panels\ListGroupTypeEPanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Frames\MainFrame.java
 D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\PersonalExpenditure.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\ListExpenditureTypePanel.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\AddExpenditureTypesPanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\UI\Frames\LoginFrame.java

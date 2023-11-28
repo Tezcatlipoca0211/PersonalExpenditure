@@ -21,6 +21,7 @@ public class Utilities {
     public static final String TITLE_LIST_RECEIPT_TYPE = "Danh mục phân loại thu nhập";
     public static final String TITLE_ADD_NEW_RECEIPT = "Thêm thu nhập mới";
     public static final String TITLE_LIST_RECEIPT = "Danh sách thu nhập";
+    public static final String TITLE_MAIN = "Quản lý chi tiêu cá nhân";
 
     public static boolean checkTabbedExist(String title, JTabbedPane tab) {
         for (int i = 0; i < tab.getTabCount(); i++) {
