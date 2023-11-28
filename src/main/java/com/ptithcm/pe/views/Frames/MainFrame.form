@@ -67,9 +67,6 @@
               <Font name="Arial" size="12" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu2ActionPerformed"/>
-          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniAddExpenditureType">
               <Properties>
@@ -79,10 +76,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddExpenditureTypeActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mniListExpenditureType">
+            <MenuItem class="javax.swing.JMenuItem" name="mniListExpenditureTypes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Danh mu&#x323;c ph&#xe2;n loa&#x323;i chi ti&#xea;u"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListExpenditureTypesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
@@ -90,11 +90,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Th&#xea;m chi ti&#xea;u m&#x1a1;&#x301;i"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddExpenditureActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mniListExpenditure">
+            <MenuItem class="javax.swing.JMenuItem" name="mniListExpenditures">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Danh sa&#x301;ch chi ti&#xea;u"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListExpendituresActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
             </MenuItem>
@@ -103,19 +109,19 @@
                 <Property name="text" type="java.lang.String" value="Th&#xea;m ph&#xe2;n loa&#x323;i thu nh&#xe2;&#x323;p m&#x1a1;&#x301;i"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="mniListRecTypes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Danh mu&#x323;c ph&#xe2;n loa&#x323;i thu nh&#xe2;&#x323;p"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator4">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="mniAddNewRec">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Th&#xea;m thu nh&#xe2;&#x323;p m&#x1a1;&#x301;i"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="mniListRec">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Danh sa&#x301;ch thu nh&#xe2;&#x323;p"/>
               </Properties>
@@ -174,8 +180,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jToolBar1" pref="842" max="32767" attributes="0"/>
-          <Component id="tabbedPane" alignment="0" pref="842" max="32767" attributes="0"/>
+          <Component id="jToolBar1" max="32767" attributes="0"/>
+          <Component id="tabbedPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -183,7 +189,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jToolBar1" min="-2" pref="62" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabbedPane" pref="393" max="32767" attributes="0"/>
+              <Component id="tabbedPane" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -226,6 +232,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListExpenditureActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToolBar$Separator" name="jSeparator6">
         </Component>

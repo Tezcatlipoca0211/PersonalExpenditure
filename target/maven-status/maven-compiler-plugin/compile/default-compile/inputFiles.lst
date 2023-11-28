@@ -1,4 +1,7 @@
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\LoginFrame.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\MainFrame.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Frames\LoginFrame.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\NewExpenditurePanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\util\Utilities.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Frames\MainFrame.java
 D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\PersonalExpenditure.java
-D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\AddExpenditureTypesPanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\ListExpenditureTypePanel.java
+D:\workspace\JavaProjects\PersonalExpenditure\src\main\java\com\ptithcm\pe\views\Panels\AddExpenditureTypesPanel.java

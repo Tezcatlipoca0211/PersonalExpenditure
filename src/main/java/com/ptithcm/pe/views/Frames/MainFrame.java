@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.ptithcm.pe.views;
+package com.ptithcm.pe.views.Frames;
 
-import javax.swing.JOptionPane;
+import com.ptithcm.pe.util.Utilities;
+import com.ptithcm.pe.views.Panels.AddExpenditureTypesPanel;
+import com.ptithcm.pe.views.Panels.ListExpenditureTypePanel;
+import com.ptithcm.pe.views.Panels.NewExpenditurePanel;
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,7 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        setSize(1000, 750);
+        setSize(1200, 750);
         setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setExtendedState(MainFrame.NORMAL);
@@ -52,16 +55,16 @@ public class MainFrame extends javax.swing.JFrame {
         mniExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniAddExpenditureType = new javax.swing.JMenuItem();
-        mniListExpenditureType = new javax.swing.JMenuItem();
+        mniListExpenditureTypes = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mniAddExpenditure = new javax.swing.JMenuItem();
-        mniListExpenditure = new javax.swing.JMenuItem();
+        mniListExpenditures = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mniAddReceiptType = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mniListRecTypes = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        mniAddNewRec = new javax.swing.JMenuItem();
+        mniListRec = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -91,6 +94,11 @@ public class MainFrame extends javax.swing.JFrame {
         btnListExpenditure.setFocusable(false);
         btnListExpenditure.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnListExpenditure.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnListExpenditure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListExpenditureActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnListExpenditure);
         jToolBar1.add(jSeparator6);
 
@@ -165,11 +173,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu2.setText("Manager");
         jMenu2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
 
         mniAddExpenditureType.setText("Thêm phân loại chi tiêu mới");
         mniAddExpenditureType.addActionListener(new java.awt.event.ActionListener() {
@@ -179,29 +182,44 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu2.add(mniAddExpenditureType);
 
-        mniListExpenditureType.setText("Danh mục phân loại chi tiêu");
-        jMenu2.add(mniListExpenditureType);
+        mniListExpenditureTypes.setText("Danh mục phân loại chi tiêu");
+        mniListExpenditureTypes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListExpenditureTypesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mniListExpenditureTypes);
         jMenu2.add(jSeparator2);
 
         mniAddExpenditure.setText("Thêm chi tiêu mới");
+        mniAddExpenditure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAddExpenditureActionPerformed(evt);
+            }
+        });
         jMenu2.add(mniAddExpenditure);
 
-        mniListExpenditure.setText("Danh sách chi tiêu");
-        jMenu2.add(mniListExpenditure);
+        mniListExpenditures.setText("Danh sách chi tiêu");
+        mniListExpenditures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListExpendituresActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mniListExpenditures);
         jMenu2.add(jSeparator3);
 
         mniAddReceiptType.setText("Thêm phân loại thu nhập mới");
         jMenu2.add(mniAddReceiptType);
 
-        jMenuItem7.setText("Danh mục phân loại thu nhập");
-        jMenu2.add(jMenuItem7);
+        mniListRecTypes.setText("Danh mục phân loại thu nhập");
+        jMenu2.add(mniListRecTypes);
         jMenu2.add(jSeparator4);
 
-        jMenuItem9.setText("Thêm thu nhập mới");
-        jMenu2.add(jMenuItem9);
+        mniAddNewRec.setText("Thêm thu nhập mới");
+        jMenu2.add(mniAddNewRec);
 
-        jMenuItem10.setText("Danh sách thu nhập");
-        jMenu2.add(jMenuItem10);
+        mniListRec.setText("Danh sách thu nhập");
+        jMenu2.add(mniListRec);
 
         jMenuBar1.add(jMenu2);
 
@@ -224,41 +242,80 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
-            .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tabbedPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
+                .addComponent(tabbedPane))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddExpenditureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddExpenditureActionPerformed
-            
+        createAddExp();
     }//GEN-LAST:event_btnAddExpenditureActionPerformed
 
     private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
         // TODO add your handling code here:
         int confirmResult = JOptionPane.showConfirmDialog(this, "Bạn có muốn thoát chương trình không?", "Xác nhận thoát", JOptionPane.YES_NO_OPTION);
-        
+
         if (confirmResult == JOptionPane.YES_OPTION)
             System.exit(0);
     }//GEN-LAST:event_mniExitActionPerformed
 
     private void mniAddExpenditureTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAddExpenditureTypeActionPerformed
-        // TODO add your handling code here:
-        tabbedPane.add(new LoginFrame());
+        boolean flag = Utilities.checkTabbedExist(Utilities.TITLE_ADD_NEW_EXPENDITURE_TYPE, tabbedPane);
+        if (flag == false){
+            AddExpenditureTypesPanel addExpPanel = new AddExpenditureTypesPanel();
+            Utilities.createTab(tabbedPane, Utilities.TITLE_ADD_NEW_EXPENDITURE_TYPE, addExpPanel);
+        }
     }//GEN-LAST:event_mniAddExpenditureTypeActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu2ActionPerformed
+    private void mniListExpenditureTypesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListExpenditureTypesActionPerformed
+        boolean flag = Utilities.checkTabbedExist(Utilities.TITLE_LIST_EXPENDITURE_TYPE, tabbedPane);
+        if (flag == false){
+            ListExpenditureTypePanel listExpenditureTypePanel = new ListExpenditureTypePanel();
+            Utilities.createTab(tabbedPane, Utilities.TITLE_LIST_EXPENDITURE_TYPE, listExpenditureTypePanel);
+        }
+    }//GEN-LAST:event_mniListExpenditureTypesActionPerformed
 
+    private void mniAddExpenditureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAddExpenditureActionPerformed
+        createAddExp();
+    }//GEN-LAST:event_mniAddExpenditureActionPerformed
+
+    private void mniListExpendituresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListExpendituresActionPerformed
+        // TODO add your handling code here:
+        showListExpe();
+    }//GEN-LAST:event_mniListExpendituresActionPerformed
+
+    private void btnListExpenditureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListExpenditureActionPerformed
+        // TODO add your handling code here:
+        showListExpe();
+    }//GEN-LAST:event_btnListExpenditureActionPerformed
+
+    private void createAddExp(){
+        boolean flag = Utilities.checkTabbedExist(Utilities.TITLE_ADD_NEW_EXPENDITURE, tabbedPane);
+        if (flag == false){
+            NewExpenditurePanel newExp = new NewExpenditurePanel();
+            Utilities.createTab(tabbedPane, Utilities.TITLE_ADD_NEW_EXPENDITURE, newExp);
+        }
+    }
+    private void showListExpe(){
+       //
+    }
+    
+    private void createAddRec(){
+        
+    }
+    
+    private void showListRec(){
+       //
+    }
     /**
      * @param args the command line arguments
      */
@@ -305,10 +362,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -320,10 +374,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem mniAddExpenditure;
     private javax.swing.JMenuItem mniAddExpenditureType;
+    private javax.swing.JMenuItem mniAddNewRec;
     private javax.swing.JMenuItem mniAddReceiptType;
     private javax.swing.JMenuItem mniExit;
-    private javax.swing.JMenuItem mniListExpenditure;
-    private javax.swing.JMenuItem mniListExpenditureType;
+    private javax.swing.JMenuItem mniListExpenditureTypes;
+    private javax.swing.JMenuItem mniListExpenditures;
+    private javax.swing.JMenuItem mniListRec;
+    private javax.swing.JMenuItem mniListRecTypes;
     private javax.swing.JMenuItem mniLogin;
     private javax.swing.JMenuItem mniLogout;
     private javax.swing.JPanel panelHome;
