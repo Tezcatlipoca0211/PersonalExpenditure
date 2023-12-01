@@ -6,7 +6,7 @@ package com.ptithcm.pe.UI.Panels;
 
 //import com.ptithcm.pe.UI.Dialogs.AddNewRevenuesTypeE;
 import com.ptithcm.pe.UI.Dialogs.AddNewGroupTypeExp;
-import com.ptithcm.pe.util.Utilities;
+import com.ptithcm.pe.util.TabbedPane;
 import java.awt.Frame;
 import javax.swing.SwingUtilities;
 
@@ -41,11 +41,18 @@ public class ListGroupTypeEPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(Utilities.TITLE_LIST_EXPENDITURE_TYPE);
+        jLabel1.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE_TYPE);
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 820, 55);
+        add(jSeparator1);
+        jSeparator1.setBounds(0, 61, 826, 3);
 
         tbeData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,17 +75,28 @@ public class ListGroupTypeEPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tbeData);
 
+        add(jScrollPane2);
+        jScrollPane2.setBounds(70, 88, 750, 256);
+
         txtName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtName.setPreferredSize(new java.awt.Dimension(350, 30));
+        add(txtName);
+        txtName.setBounds(160, 404, 300, 30);
 
         txtId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtId.setPreferredSize(new java.awt.Dimension(120, 30));
+        add(txtId);
+        txtId.setBounds(160, 362, 110, 30);
 
         lblName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblName.setText("Name:");
+        add(lblName);
+        lblName.setBounds(70, 410, 40, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("ID:");
+        add(jLabel3);
+        jLabel3.setBounds(70, 368, 17, 17);
 
         btnAdd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_add32.png"))); // NOI18N
@@ -88,59 +106,19 @@ public class ListGroupTypeEPanel extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
+        add(btnAdd);
+        btnAdd.setBounds(540, 360, 129, 42);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(lblName))
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdd))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName))))
-                .addGap(23, 23, 23))
-        );
+        btnRefresh.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_refresh32.png"))); // NOI18N
+        btnRefresh.setText("Làm mới");
+        add(btnRefresh);
+        btnRefresh.setBounds(690, 360, 130, 42);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         AddNewGroupTypeExp addNewRevenuesTypeE = new AddNewGroupTypeExp((Frame) SwingUtilities.getWindowAncestor(this), true);
-        addNewRevenuesTypeE.setSize(600, 400);
+        addNewRevenuesTypeE.setSize(500, 300);
         addNewRevenuesTypeE.setLocationRelativeTo(null);
         addNewRevenuesTypeE.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
@@ -148,6 +126,7 @@ public class ListGroupTypeEPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;

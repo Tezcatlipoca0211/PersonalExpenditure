@@ -5,7 +5,7 @@
 package com.ptithcm.pe.UI.Panels;
 
 import com.ptithcm.pe.UI.Dialogs.AddNewRevenuesTypeExp;
-import com.ptithcm.pe.util.Utilities;
+import com.ptithcm.pe.util.TabbedPane;
 import java.awt.Frame;
 import javax.swing.SwingUtilities;
 
@@ -13,12 +13,12 @@ import javax.swing.SwingUtilities;
  *
  * @author tezca
  */
-public class ListExpenditurePanel extends javax.swing.JPanel {
+public class ListRevenuesTypeEPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ListExpenditurePanel
      */
-    public ListExpenditurePanel() {
+    public ListRevenuesTypeEPanel() {
         initComponents();
     }
 
@@ -55,7 +55,7 @@ public class ListExpenditurePanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(Utilities.TITLE_LIST_EXPENDITURE);
+        jLabel1.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE);
         add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 65);
         add(jSeparator1);

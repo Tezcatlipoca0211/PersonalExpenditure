@@ -38,6 +38,15 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE190</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-util -->
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-util -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-util</artifactId>
+            <version>10.1.16</version>
+        </dependency>
+
+
     </dependencies>
     
     <build>

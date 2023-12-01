@@ -73,7 +73,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Danh sa&#x301;ch chi ti&#xea;u"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListRevenuesTypeEActionPerformed"/>
@@ -84,7 +86,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Danh mu&#x323;c ph&#xe2;n loa&#x323;i chi ti&#xea;u"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE_TYPE" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListGroupTypeEActionPerformed"/>
@@ -97,16 +101,26 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Danh sa&#x301;ch thu nh&#xe2;&#x323;p"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT" type="code"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListRevenuesTypeRActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniListGroupTypeR">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Danh mu&#x323;c ph&#xe2;n loa&#x323;i thu nh&#xe2;&#x323;p"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT_TYPE" type="code"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListGroupTypeRActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
             </MenuItem>
@@ -115,7 +129,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Th&#xf4;&#x301;ng k&#xea;"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="com.ptithcm.pe.util.Constaint.STATISTICS" type="code"/>
+                </Property>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -157,7 +173,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-      <Connection code="Utilities.TITLE_MAIN" type="code"/>
+      <Connection code="com.ptithcm.pe.util.Constaint.TITLE_MAIN" type="code"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -210,7 +226,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/icon_payment32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Chi ti&#xea;u"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE" type="code"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -227,7 +245,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/icon_list32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Danh mu&#x323;c chi ti&#xea;u"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE_TYPE" type="code"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -246,11 +266,16 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/icon_receipt32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Thu nh&#xe2;&#x323;p"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT" type="code"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddReceiptActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnListReceipt">
           <Properties>
@@ -260,13 +285,36 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/icon_addRec32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Danh mu&#x323;c thu nh&#xe2;&#x323;p"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT_TYPE" type="code"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListReceiptActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator7">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnStatistic">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icons/icon_statistic32.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.STATISTICS" type="code"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="jSeparator7">
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator4">
         </Component>
         <Component class="javax.swing.JButton" name="btnCloseTab">
           <Properties>
@@ -276,7 +324,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/icon_close32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#x110;o&#x301;ng c&#x1b0;&#x309;a s&#xf4;&#x309;"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="com.ptithcm.pe.util.Constaint.CLOSE_WINDOWS" type="code"/>
+            </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>

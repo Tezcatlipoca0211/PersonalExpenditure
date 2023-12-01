@@ -4,9 +4,11 @@
  */
 package com.ptithcm.pe.UI.Frames;
 
-import com.ptithcm.pe.util.Utilities;
-import com.ptithcm.pe.UI.Panels.ListExpenditurePanel;
+import com.ptithcm.pe.util.*;
+import com.ptithcm.pe.UI.Panels.ListRevenuesTypeEPanel;
 import com.ptithcm.pe.UI.Panels.ListGroupTypeEPanel;
+import com.ptithcm.pe.UI.Panels.ListGroupTypeRPanel;
+import com.ptithcm.pe.UI.Panels.ListRevenuesTypeRPanel;
 import javax.swing.*;
 
 /**
@@ -42,6 +44,8 @@ public class MainFrame extends javax.swing.JFrame {
         btnAddReceipt = new javax.swing.JButton();
         btnListReceipt = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
+        btnStatistic = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         btnCloseTab = new javax.swing.JButton();
         tabbedPane = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -64,13 +68,13 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle(Utilities.TITLE_MAIN);
+        setTitle(com.ptithcm.pe.util.Constaint.TITLE_MAIN);
 
         jToolBar1.setRollover(true);
 
         btnRevenuesTypeE.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnRevenuesTypeE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_payment32.png"))); // NOI18N
-        btnRevenuesTypeE.setText("Chi tiêu");
+        btnRevenuesTypeE.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE);
         btnRevenuesTypeE.setFocusable(false);
         btnRevenuesTypeE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRevenuesTypeE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -83,7 +87,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnListGroupTypeE.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnListGroupTypeE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_list32.png"))); // NOI18N
-        btnListGroupTypeE.setText("Danh mục chi tiêu");
+        btnListGroupTypeE.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE_TYPE);
         btnListGroupTypeE.setFocusable(false);
         btnListGroupTypeE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnListGroupTypeE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -97,24 +101,43 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnAddReceipt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnAddReceipt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_receipt32.png"))); // NOI18N
-        btnAddReceipt.setText("Thu nhập");
+        btnAddReceipt.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT);
         btnAddReceipt.setFocusable(false);
         btnAddReceipt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAddReceipt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAddReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddReceiptActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnAddReceipt);
 
         btnListReceipt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnListReceipt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_addRec32.png"))); // NOI18N
-        btnListReceipt.setText("Danh mục thu nhập");
+        btnListReceipt.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT_TYPE);
         btnListReceipt.setFocusable(false);
         btnListReceipt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnListReceipt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnListReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListReceiptActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnListReceipt);
         jToolBar1.add(jSeparator7);
 
+        btnStatistic.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnStatistic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_statistic32.png"))); // NOI18N
+        btnStatistic.setText(com.ptithcm.pe.util.Constaint.STATISTICS);
+        btnStatistic.setFocusable(false);
+        btnStatistic.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnStatistic.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnStatistic);
+        jToolBar1.add(jSeparator4);
+
         btnCloseTab.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnCloseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon_close32.png"))); // NOI18N
-        btnCloseTab.setText("Đóng cửa sổ");
+        btnCloseTab.setText(com.ptithcm.pe.util.Constaint.CLOSE_WINDOWS);
         btnCloseTab.setFocusable(false);
         btnCloseTab.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCloseTab.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -160,7 +183,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         mniListRevenuesTypeE.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniListRevenuesTypeE.setText("Danh sách chi tiêu");
+        mniListRevenuesTypeE.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE);
         mniListRevenuesTypeE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniListRevenuesTypeEActionPerformed(evt);
@@ -169,7 +192,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.add(mniListRevenuesTypeE);
 
         mniListGroupTypeE.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniListGroupTypeE.setText("Danh mục phân loại chi tiêu");
+        mniListGroupTypeE.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_EXPENDITURE_TYPE);
         mniListGroupTypeE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniListGroupTypeEActionPerformed(evt);
@@ -179,16 +202,26 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.add(jSeparator2);
 
         mniListRevenuesTypeR.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniListRevenuesTypeR.setText("Danh sách thu nhập");
+        mniListRevenuesTypeR.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT);
+        mniListRevenuesTypeR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListRevenuesTypeRActionPerformed(evt);
+            }
+        });
         jMenu2.add(mniListRevenuesTypeR);
 
         mniListGroupTypeR.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniListGroupTypeR.setText("Danh mục phân loại thu nhập");
+        mniListGroupTypeR.setText(com.ptithcm.pe.util.Constaint.TITLE_LIST_RECEIPT_TYPE);
+        mniListGroupTypeR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListGroupTypeRActionPerformed(evt);
+            }
+        });
         jMenu2.add(mniListGroupTypeR);
         jMenu2.add(jSeparator3);
 
         mniStatistics.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniStatistics.setText("Thống kê");
+        mniStatistics.setText(com.ptithcm.pe.util.Constaint.STATISTICS);
         jMenu2.add(mniStatistics);
 
         jMenuBar1.add(jMenu2);
@@ -259,24 +292,54 @@ public class MainFrame extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnCloseTabActionPerformed
 
+    private void btnAddReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddReceiptActionPerformed
+        showListRevenuesTypeR();
+    }//GEN-LAST:event_btnAddReceiptActionPerformed
+
+    private void mniListRevenuesTypeRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListRevenuesTypeRActionPerformed
+        showListRevenuesTypeR();
+    }//GEN-LAST:event_mniListRevenuesTypeRActionPerformed
+
+    private void btnListReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListReceiptActionPerformed
+        // TODO add your handling code here:
+        showListGroupTypeR();
+    }//GEN-LAST:event_btnListReceiptActionPerformed
+
+    private void mniListGroupTypeRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListGroupTypeRActionPerformed
+        // TODO add your handling code here:
+        showListGroupTypeR();
+    }//GEN-LAST:event_mniListGroupTypeRActionPerformed
+
     private void showListRevenuesTypeE(){
-       boolean flag = Utilities.checkTabbedExist(Utilities.TITLE_LIST_EXPENDITURE, tabbedPane);
+       boolean flag = TabbedPane.checkTabbedExist(Constaint.TITLE_LIST_EXPENDITURE, tabbedPane);
         if (flag == false){
-            ListExpenditurePanel listExp = new ListExpenditurePanel();
-            Utilities.createTab(tabbedPane, Utilities.TITLE_LIST_EXPENDITURE, listExp);
+            ListRevenuesTypeEPanel listExp = new ListRevenuesTypeEPanel();
+            TabbedPane.createTab(tabbedPane, Constaint.TITLE_LIST_EXPENDITURE, listExp);
         }
     }
     
     private void showListGroupTypeE(){
-       boolean flag = Utilities.checkTabbedExist(Utilities.TITLE_LIST_EXPENDITURE_TYPE, tabbedPane);
+       boolean flag = TabbedPane.checkTabbedExist(Constaint.TITLE_LIST_EXPENDITURE_TYPE, tabbedPane);
         if (flag == false){
             ListGroupTypeEPanel listGrExp = new ListGroupTypeEPanel();
-            Utilities.createTab(tabbedPane, Utilities.TITLE_LIST_EXPENDITURE_TYPE, listGrExp);
+            TabbedPane.createTab(tabbedPane, Constaint.TITLE_LIST_EXPENDITURE_TYPE, listGrExp);
         }
     }
     
-    private void createAddRevenuesTypeR(){
-        //
+    private void showListRevenuesTypeR(){
+       boolean flag = TabbedPane.checkTabbedExist(Constaint.TITLE_LIST_RECEIPT, tabbedPane);
+        if (flag == false){
+            ListRevenuesTypeRPanel listRec = new ListRevenuesTypeRPanel();
+            TabbedPane.createTab(tabbedPane, Constaint.TITLE_LIST_RECEIPT, listRec);
+        }
+    }
+    
+    private void showListGroupTypeR(){
+       boolean flag = TabbedPane.checkTabbedExist(Constaint.TITLE_LIST_RECEIPT_TYPE, tabbedPane);
+        if (flag == false){
+            ListGroupTypeRPanel listGrRec = new ListGroupTypeRPanel();
+            TabbedPane.createTab(tabbedPane, Constaint.TITLE_LIST_RECEIPT_TYPE, listGrRec);
+        }
     }
     /**
      * @param args the command line arguments
@@ -320,6 +383,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnListGroupTypeE;
     private javax.swing.JButton btnListReceipt;
     private javax.swing.JButton btnRevenuesTypeE;
+    private javax.swing.JButton btnStatistic;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -328,6 +392,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;

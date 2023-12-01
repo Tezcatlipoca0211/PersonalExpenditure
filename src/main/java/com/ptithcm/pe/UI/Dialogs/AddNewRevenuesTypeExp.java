@@ -4,9 +4,9 @@
  */
 package com.ptithcm.pe.UI.Dialogs;
 
-import com.ptithcm.pe.util.Utilities;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
@@ -18,6 +18,8 @@ public class AddNewRevenuesTypeExp extends javax.swing.JDialog {
 
     /**
      * Creates new form AddNewRevenuesTypeExp
+     * @param parent
+     * @param modal
      */
     public AddNewRevenuesTypeExp(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -54,12 +56,13 @@ public class AddNewRevenuesTypeExp extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle(Utilities.TITLE_ADD_NEW_EXPENDITURE);
+        setTitle(com.ptithcm.pe.util.Constaint.TITLE_ADD_NEW_EXPENDITURE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(Utilities.TITLE_ADD_NEW_EXPENDITURE);
+        jLabel1.setText(com.ptithcm.pe.util.Constaint.TITLE_ADD_NEW_EXPENDITURE);
 
         lblType.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblType.setText("Phân loại:");
@@ -168,6 +171,11 @@ public class AddNewRevenuesTypeExp extends javax.swing.JDialog {
 
         btnCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnCancel.setText("Hủy");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,6 +214,12 @@ public class AddNewRevenuesTypeExp extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtAmountKeyTyped
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        if (JOptionPane.showConfirmDialog(this, "Bạn có muốn thoát", "Xác nhận thoát", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
