@@ -20,7 +20,6 @@ public interface DAO<T> {
     
     public ArrayList<T> selectAll();
     
-    public T selectById(int id); 
     public T selectByName(String name);
     
 }

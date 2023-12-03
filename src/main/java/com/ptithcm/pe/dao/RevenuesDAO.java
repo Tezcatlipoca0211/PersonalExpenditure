@@ -29,25 +29,33 @@ public class RevenuesDAO implements DAO<Revenues> {
     @Override
     public int insert(Revenues t) {
         int result = 0;
-        try {
-            //Bước 1: Tạo kết nối cơ sở dữ liệu
-            Connection con = DatabaseHelper.openConnection();
-            // Bước 2: Tạo ra đối tượng statement
-            String sql = "INSERT INTO Revenues(Amount, [DateTime], Note, GroupId) VALUES (?, ?, ?, ?)";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, t.getAmount());
-            pst.setTimestamp(2, t.getDateTime());
-            pst.setString(3, t.getNote());
-            pst.setInt(4, t.getGroupId());
-            //Bước 3: Thực thi câu lệnh SQL
-            result = pst.executeUpdate();
-            //Bước 4: Làm việc với kết quả thu được
-            System.out.println("Bạn đã thực thi: " + sql);
-            System.out.println("Có " + result + " dòng bị thay đổi!");
-            //Bước 5: Ngắt kết nối
-            DatabaseHelper.closeConnection(con);
+        try ( //Bước 1: Tạo kết nối cơ sở dữ liệu
+                Connection con = DatabaseHelper.openConnection();) {
+            try {
+                // Bước 2: Tạo ra đối tượng statement
+                String sql = "INSERT INTO Revenues(Amount, [DateTime], Note, GroupId) VALUES (?, ?, ?, ?)";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+                con.setAutoCommit(false);
+                ps.setInt(1, t.getAmount());
+            ps.setTimestamp(2, t.getDateTime());
+            ps.setString(3, t.getNote());
+            ps.setInt(4, t.getGroupId());
+                //Bước 3: Thực thi câu lệnh SQL
+                result = ps.executeUpdate();
+                //Bước 4: Làm việc với kết quả thu được
+                System.out.println("Có " + result + " dòng bị thay đổi!");
+                //Bước 5: commit
+                con.commit();
+                
+            } catch (Exception e) {
+                con.rollback();
+            } finally {
+                con.setAutoCommit(true);
+            }
+
         } catch (SQLException ex) {
-            Logger.getLogger(GroupDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -55,25 +63,33 @@ public class RevenuesDAO implements DAO<Revenues> {
     @Override
     public int update(Revenues t) {
         int result = 0;
-        try {
-            //Bước 1: Tạo kết nối cơ sở dữ liệu
-            Connection con = DatabaseHelper.openConnection();
-            // Bước 2: Tạo ra đối tượng statement
-            String sql = "UPDATE [Revenues] SET [Amount] = ?, [DateTime] = ?, Note = ? WHERE [RevenuesId] = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(4, t.getRevenuesId());
+        try ( //Bước 1: Tạo kết nối cơ sở dữ liệu
+                Connection con = DatabaseHelper.openConnection();) {
+            try {
+                // Bước 2: Tạo ra đối tượng statement
+                String sql = "UPDATE [Revenues] SET [Amount] = ?, [DateTime] = ?, Note = ? WHERE [RevenuesId] = ?";
+
+                PreparedStatement pst = con.prepareStatement(sql);
+                con.setAutoCommit(false);
+                pst.setInt(4, t.getRevenuesId());
             pst.setInt(1, t.getAmount());
             pst.setTimestamp(2, t.getDateTime());
             pst.setString(3, t.getNote());
-            //Bước 3: Thực thi câu lệnh SQL
-            result = pst.executeUpdate();
-            //Bước 4: Làm việc với kết quả thu được
-            System.out.println("Bạn đã thực thi: " + sql);
-            System.out.println("Có " + result + " dòng bị thay đổi!");
-            //Bước 5: Ngắt kết nối
-            DatabaseHelper.closeConnection(con);
+                //Bước 3: Thực thi câu lệnh SQL
+                result = pst.executeUpdate();
+                //Bước 4: Làm việc với kết quả thu được
+                System.out.println("Có " + result + " dòng bị thay đổi!");
+                //Bước 5: commit
+                con.commit();
+                
+            } catch (Exception e) {
+                con.rollback();
+            } finally {
+                con.setAutoCommit(true);
+            }
+
         } catch (SQLException ex) {
-            Logger.getLogger(GroupDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -81,22 +97,31 @@ public class RevenuesDAO implements DAO<Revenues> {
     @Override
     public int delete(Revenues t) {
         int result = 0;
-        try {
-            //Bước 1: Tạo kết nối cơ sở dữ liệu
-            Connection con = DatabaseHelper.openConnection();
-            // Bước 2: Tạo ra đối tượng statement
-            String sql = "DELETE FROM Revenues WHERE RevenuesId = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
+        try ( //Bước 1: Tạo kết nối cơ sở dữ liệu
+                Connection con = DatabaseHelper.openConnection();) {
+            try {
+                // Bước 2: Tạo ra đối tượng statement
+                String sql = "DELETE FROM Revenues WHERE RevenuesId = ?";
+
+                PreparedStatement pst = con.prepareStatement(sql);
+                con.setAutoCommit(false);
+                pst.setInt(4, t.getRevenuesId());
             pst.setInt(1, t.getRevenuesId());
-            //Bước 3: Thực thi câu lệnh SQL
-            result = pst.executeUpdate();
-            //Bước 4: Làm việc với kết quả thu được
-            System.out.println("Bạn đã thực thi: " + sql);
-            System.out.println("Có " + result + " dòng bị thay đổi!");
-            //Bước 5: Ngắt kết nối
-            DatabaseHelper.closeConnection(con);
+                //Bước 3: Thực thi câu lệnh SQL
+                result = pst.executeUpdate();
+                //Bước 4: Làm việc với kết quả thu được
+                System.out.println("Có " + result + " dòng bị thay đổi!");
+                //Bước 5: commit
+                con.commit();
+                
+            } catch (Exception e) {
+                con.rollback();
+            } finally {
+                con.setAutoCommit(true);
+            }
+
         } catch (SQLException ex) {
-            Logger.getLogger(GroupDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -130,11 +155,6 @@ public class RevenuesDAO implements DAO<Revenues> {
         return result;
     }
 
-    @Override
-    public Revenues selectById(int id) {
-
-        return null;
-    }
 
     @Override
     public Revenues selectByName(String name) {

@@ -1,34 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ptithcm.pe.test;
 
-import com.ptithcm.pe.dao.GroupDAO;
-import com.ptithcm.pe.dao.RevenuesDAO;
-
-import com.ptithcm.pe.dao.UserDAO;
-import com.ptithcm.pe.model.Group;
-import com.ptithcm.pe.model.Revenues;
-import com.ptithcm.pe.model.User;
+import com.ptithcm.pe.util.CheckValidated;
 import com.ptithcm.pe.util.PasswordHashing;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import javax.swing.text.Utilities;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
- *
- * @author tezca
- */
 public class TestInsert {
     public static void main(String[] args) {
-//        ArrayList<Group> list = GroupDAO.getInstance().selectbyType(true, 1);
-//        for (Group group : list) {
-//            System.out.println(group.toString());
-//        }
-             
+        String name1 = "@TrongHieu123";
+        String name2 = "Ngusadsa21321h";
+        String name3 = "Nguy()d";
+        String name4 = "Chính";
+        
+        System.out.println(PasswordHashing.toSha1(name1));
+//        System.out.println("Name 2: " + CheckValidated.checkNameOfUserValid(name2));
+//        System.out.println("Name 3: " + CheckValidated.checkNameOfUserValid(name3));
+//        System.out.println("Name 4: " + CheckValidated.checkNameOfUserValid(name4));
     }
+    
+    
 }

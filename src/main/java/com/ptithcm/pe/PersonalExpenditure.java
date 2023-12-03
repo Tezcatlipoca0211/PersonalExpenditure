@@ -9,8 +9,23 @@ package com.ptithcm.pe;
  * @author tezca
  */
 public class PersonalExpenditure {
+    private int userId;
+    private PersonalExpenditure() {
+    }
+ 
+    public static PersonalExpenditure getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+ 
+    private static class SingletonHelper {
+        private static final PersonalExpenditure INSTANCE = new PersonalExpenditure();
+    }
+    
+    public synchronized int getUserId() {
+        return userId;
+    }
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public synchronized void setUserId(int userId) {
+        this.userId = userId;
     }
 }
